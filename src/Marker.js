@@ -40,5 +40,8 @@ export default class Marker extends PopupContainer {
     if (this.props.opacity !== prevProps.opacity) {
       this.leafletElement.setOpacity(this.props.opacity);
     }
+    if(this.props.openPopup) {
+        this.leafletElement.openPopup()
+    }
   }
 }
