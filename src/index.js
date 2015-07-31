@@ -8,6 +8,7 @@ import Circle from './Circle';
 import CircleMarker from './CircleMarker';
 import FeatureGroup from './FeatureGroup';
 import LayerGroup from './LayerGroup';
+import MarkerClusterGroup from './MarkerClusterGroup';
 import GeoJson from './GeoJson';
 import ImageOverlay from './ImageOverlay';
 import Map from './Map';
@@ -39,6 +40,7 @@ export default {
   CircleMarker,
   FeatureGroup,
   LayerGroup,
+  MarkerClusterGroup,
   GeoJson,
   ImageOverlay,
   Map,
