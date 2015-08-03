@@ -6,7 +6,7 @@ export default class PopupContainer extends MapLayer {
   componentDidMount() {
     super.componentDidMount();
     if(this.props.openPopup) {
-      this.leafletElement.openPopup()
+      this.leafletElement.openPopup();
     }
   }
 
