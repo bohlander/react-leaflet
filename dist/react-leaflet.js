@@ -3622,9 +3622,6 @@ var Marker = (function (_PopupContainer) {
       if (this.props.icon !== prevProps.icon) {
         this.leafletElement.setIcon(this.props.icon);
       }
-      if (this.props.icon !== prevProps.icon) {
-        this.leafletElement.setIcon(this.props.icon);
-      }
       if (this.props.zIndexOffset !== prevProps.zIndexOffset) {
         this.leafletElement.setZIndexOffset(this.props.zIndexOffset);
       }
@@ -4093,15 +4090,17 @@ var Popup = (function (_MapComponent) {
 
       this.leafletElement = (0, _leaflet.popup)(props, popupContainer);
       this.leafletElement.on('open', function () {
+        //on popoup create new react root
         var children = _this.props.children;
 
         _this.contentComponent = _react2['default'].render(_react2['default'].DOM.div({ children: children }), _this.leafletElement._contentNode);
         _this.leafletElement._adjustPan();
-      }, this);
+      });
       this.leafletElement.on('close', function () {
+        //remove react root
         delete _this.contentComponent;
         _react2['default'].unmountComponentAtNode(_this.leafletElement._contentNode);
-      }, this);
+      });
     }
   }, {
     key: 'componentDidMount',
@@ -4112,9 +4111,11 @@ var Popup = (function (_MapComponent) {
       var position = _props2.position;
 
       _get(Object.getPrototypeOf(Popup.prototype), 'componentDidMount', this).call(this);
+      //Attach to container component
       if (popupContainer) {
         popupContainer.bindPopup(this.leafletElement);
       } else {
+        //attach to map
         if (position) this.leafletElement.setLatLng(position);
         this.leafletElement.openOn(map);
       }
