@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import { Icon, marker } from 'leaflet';
+import { Leaflet, Icon, marker } from 'leaflet';
 
 import latlngType from './types/latlng';
 import PopupContainer from './PopupContainer';
