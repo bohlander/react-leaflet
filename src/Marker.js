@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import { Leaflet, Icon, marker } from 'leaflet';
+import { latLng, Icon, marker } from 'leaflet';
 
 import latlngType from './types/latlng';
 import PopupContainer from './PopupContainer';
@@ -20,7 +20,7 @@ export default class Marker extends PopupContainer {
 
   componentDidUpdate(prevProps) {
     if (this.props.position !== prevProps.position) {
-      if (!Leaflet.latLng(this.props.position).equals(this.leafletElement.getLatLng())) {
+      if (!latLng(this.props.position).equals(this.leafletElement.getLatLng())) {
         this.leafletElement.setLatLng(this.props.position);
         if (this.props.layerGroup && this.props.layerGroup.constructor === L.MarkerClusterGroup) {
           this.props.layerGroup.removeLayer(this.leafletElement);
